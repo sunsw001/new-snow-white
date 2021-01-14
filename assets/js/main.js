@@ -189,7 +189,7 @@ function startCreate() {
   this.board1 = this.add.sprite(this.startX, this.boardY, 'board');
   // phsics of first board
   this.physics.add.existing(this.board1, 'staticSprite');
-  // 随机1/2的概率，1是上升2是下降，当平台无法上升或下降时（在最高或最低位置）反着来
+
   this.startX += 450;
   this.rndY = Phaser.Math.Between(1, 2);
   if (this.rndY == 1 && this.boardY != 400) {
@@ -463,7 +463,7 @@ function startUpdate() {
 
     // clear apples
     this.apples.clear(true, true);
-    // apple new apples
+    // new apples
     for (let i = 0; i < 8; i++) {
       this.rndY = Phaser.Math.Between(350, 550);
       this.apple = this.physics.add.sprite(0, this.rndY, 'apple');
@@ -479,7 +479,7 @@ function startUpdate() {
   if (this.scoreAdd > 30) {
     this.scoreAdd = 0;
 
-    // use animation to demonstrate boom
+    // change apples from good to bad
     this.apples.playAnimation('boom');
     this.boomChange = true;
   }
